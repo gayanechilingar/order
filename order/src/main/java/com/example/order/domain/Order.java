@@ -1,25 +1,37 @@
 package com.example.order.domain;
 
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Document(collation = "orders")
+@Document(collection = "user_orders")
 public class Order {
-    
+
     @Id
     private String id;
-    private int userId;
-    private String productName;
+    private Integer userId;
+    private int price;
+    private String productName;    
+    private LocalDateTime recordTime = LocalDateTime.now();
 
     public Order() {
-    }   
-            
-    public Order(String id, int userId, String productName){    
-        this.id = id;
-        this.userId = userId;
-        this.productName = productName;
+    }
+
+    public LocalDateTime getRecordTime() {
+        return recordTime;
+    }
+
+    public void setRecordTime(LocalDateTime recordTime) {
+        this.recordTime = recordTime;
+    }  
     
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getId() {
@@ -30,11 +42,11 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -45,6 +57,5 @@ public class Order {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    
-    
+
 }

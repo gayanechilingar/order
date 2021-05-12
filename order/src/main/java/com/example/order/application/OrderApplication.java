@@ -15,10 +15,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
-        final SpringApplication application = new SpringApplication(OrderApplication.class);
-        application.setBannerMode(Banner.Mode.OFF);
-        application.run(args);
+        SpringApplication.run(OrderApplication.class, args);     
     }
 
 }
